@@ -1,7 +1,0 @@
-C:\Users\Kronos\Desktop\Zuul\Zuul\bin\Debug\Zuul.exe.config
-C:\Users\Kronos\Desktop\Zuul\Zuul\bin\Debug\Zuul.exe
-C:\Users\Kronos\Desktop\Zuul\Zuul\bin\Debug\Zuul.pdb
-C:\Users\Kronos\Desktop\Zuul\Zuul\obj\Debug\Zuul.csprojAssemblyReference.cache
-C:\Users\Kronos\Desktop\Zuul\Zuul\obj\Debug\Zuul.csproj.CoreCompileInputs.cache
-C:\Users\Kronos\Desktop\Zuul\Zuul\obj\Debug\Zuul.exe
-C:\Users\Kronos\Desktop\Zuul\Zuul\obj\Debug\Zuul.pdb
