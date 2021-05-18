@@ -1,0 +1,7 @@
+.DS*
+.vs
+.vscode
+build
+
+Zuul/bin
+Zuul/obj
