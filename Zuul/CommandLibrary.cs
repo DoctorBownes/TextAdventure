@@ -15,8 +15,11 @@ namespace Zuul
 			validCommands = new List<string>();
 
 			validCommands.Add("look");
+			validCommands.Add("status");
 			validCommands.Add("help");
 			validCommands.Add("go");
+			validCommands.Add("take");
+			validCommands.Add("drop");
 			validCommands.Add("quit");
 		}
 

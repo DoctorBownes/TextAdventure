@@ -22,11 +22,13 @@ namespace Zuul
 			Room lab = new Room("in a computing lab");
 			Room office = new Room("in the computing admin office");
 			Room lowerpub = new Room("basement of the campus pub");
+			Item knife = new Item(10, "knife");
 
 			// initialise room exits
 			outside.AddExit("east", theatre);
 			outside.AddExit("south", lab);
 			outside.AddExit("west", pub);
+			outside.Chest.Put(knife);
 
 			theatre.AddExit("west", outside);
 
@@ -96,6 +98,15 @@ namespace Zuul
 				case "look":
 					PrintLook();
 					break;
+				case "status":
+					PrintStatus();
+					break;
+				case "take":
+					Take(command);
+					break;
+				case "drop":
+					Drop(command);
+					break;
 				case "help":
 					PrintHelp();
 					break;
@@ -127,7 +138,23 @@ namespace Zuul
 		private void PrintLook()
 		{
 			Console.WriteLine(player1.GetCurrentRoomDesc());
+			Console.WriteLine(player1.GetCurrentRoomItems());
 			Console.WriteLine();
+		}
+		private void PrintStatus()
+		{
+			Console.WriteLine(player1.HealPlayer(0));
+			Console.WriteLine(player1.GetPlayerItems());
+			Console.WriteLine();
+		}
+
+		private void Take(Command command)
+		{
+			player1.TakeFromChest(command.GetSecondWord());
+		}
+		private void Drop(Command command)
+		{
+			player1.DropToChest(command.GetSecondWord());
 		}
 
 		/**

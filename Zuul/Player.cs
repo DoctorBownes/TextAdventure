@@ -6,17 +6,48 @@ using System.Threading.Tasks;
 
 namespace Zuul
 {
-    class Player
+    public class Player
     {
         public Room currentRoom;
         private int PlayerHealth;
-        public Player(Room setCurrentRoom)
+		private Inventory inventory;
+
+		public Player(Room setCurrentRoom)
         {
             currentRoom = setCurrentRoom;
             PlayerHealth = 100;
+			inventory = new Inventory(70);
         }
 
-        public int DamagePlayer(int amount)
+
+		public bool TakeFromChest(string itemName)
+		{
+			Item ItemCheck = currentRoom.Chest.Get(itemName);
+			if (ItemCheck != null)
+			{
+				inventory.Put(ItemCheck);
+				//currentRoom.Chest.Get(itemName);
+				Console.WriteLine("You put the " + itemName + " in your inventory.");
+				return true;
+			}
+			Console.WriteLine("There is no " + itemName + " in the room...");
+			return false;
+		}
+		public bool DropToChest(string itemName)
+		{
+			Item ItemCheck = inventory.Get(itemName);
+			if (ItemCheck != null)
+			{
+				currentRoom.Chest.Put(ItemCheck);
+				//inventory.Get(itemName);
+				Console.WriteLine("You dropped the " + itemName);
+				return true;
+			}
+			Console.WriteLine("There is no " + itemName + " in your inventory.");
+			return false;
+		}
+
+		public int DamagePlayer(int amount)
         {
             return PlayerHealth -= amount;
         }
@@ -32,7 +63,17 @@ namespace Zuul
                 return false;
             }
             return true;
-        }
+		}
+
+		public string GetPlayerItems()
+		{
+			return inventory.GetAllItems();
+		}
+
+		public string GetCurrentRoomItems()
+		{
+			return currentRoom.Chest.GetAllItems();
+		}
 
         public string GetCurrentRoomDesc()
         {

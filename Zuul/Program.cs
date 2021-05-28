@@ -2,7 +2,7 @@
 
 namespace Zuul
 {
-	class Program
+	public class Program
 	{
 		/**
 		 * Create and play the Game.
