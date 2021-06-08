@@ -23,12 +23,14 @@ namespace Zuul
 			Room office = new Room("in the computing admin office");
 			Room lowerpub = new Room("basement of the campus pub");
 			Item knife = new Item(10, "knife");
+			Item medkit = new Medkit();
 
 			// initialise room exits
 			outside.AddExit("east", theatre);
 			outside.AddExit("south", lab);
 			outside.AddExit("west", pub);
 			outside.Chest.Put(knife);
+			outside.Chest.Put(medkit);
 
 			theatre.AddExit("west", outside);
 
@@ -104,6 +106,9 @@ namespace Zuul
 				case "take":
 					Take(command);
 					break;
+				case "use":
+					UseItem(command);
+					break;
 				case "drop":
 					Drop(command);
 					break;
@@ -151,6 +156,13 @@ namespace Zuul
 		private void Take(Command command)
 		{
 			player1.TakeFromChest(command.GetSecondWord());
+		}
+		private void UseItem(Command command)
+		{
+			if (!command.HasThirdWord())
+			{
+				player1.Use(command.GetSecondWord());
+			}
 		}
 		private void Drop(Command command)
 		{

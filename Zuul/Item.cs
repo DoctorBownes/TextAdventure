@@ -15,5 +15,10 @@ namespace Zuul
 			Weight = weight;
 			Description = description;
 		}
+
+		public virtual void Use()
+		{
+			Console.WriteLine("This item cannot be used");
+		}
 	}
 }

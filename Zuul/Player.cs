@@ -47,14 +47,30 @@ namespace Zuul
 			return false;
 		}
 
+		public string Use(string itemName)
+		{
+			Item ItemCheck = currentRoom.Chest.Get(itemName);
+			if (ItemCheck is Medkit)
+			{
+				ItemCheck = new Medkit();
+				HealPlayer(ItemCheck);
+			}
+		}
+
 		public int DamagePlayer(int amount)
         {
             return PlayerHealth -= amount;
         }
         public int HealPlayer(int amount)
-        {
-            return PlayerHealth += amount;
-        }
+		{
+			PlayerHealth += amount;
+			if (PlayerHealth > 100)
+			{
+				PlayerHealth = 100;
+			}
+			return PlayerHealth;
+
+		}
         public bool isAlive()
         {
             if (PlayerHealth <= 0)

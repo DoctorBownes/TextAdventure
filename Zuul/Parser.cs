@@ -20,6 +20,7 @@ namespace Zuul
 
 			string word1 = null;
 			string word2 = null;
+			string word3 = null;
 
 			// string.Split() returns an array
 			string[] words = Console.ReadLine().Split(' ');
@@ -28,11 +29,11 @@ namespace Zuul
 
 			// Now check whether this word is known. If so, create a command with it.
 			if (commandLibrary.IsCommand(word1)) {
-				return new Command(word1, word2);
+				return new Command(word1, word2, word3);
 			}
 
 			// If not, create a "null" command (for unknown command).
-			return new Command(null, null);
+			return new Command(null, null, null);
 		}
 
 		/**
