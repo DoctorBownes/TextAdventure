@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuul", "Zuul.csproj", "{5768F388-4518-4422-8912-708874A84819}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuul", "Zuul\Zuul.csproj", "{36F5B60A-A625-4118-91E9-CB9595603D46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5768F388-4518-4422-8912-708874A84819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5768F388-4518-4422-8912-708874A84819}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5768F388-4518-4422-8912-708874A84819}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5768F388-4518-4422-8912-708874A84819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F5B60A-A625-4118-91E9-CB9595603D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F5B60A-A625-4118-91E9-CB9595603D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F5B60A-A625-4118-91E9-CB9595603D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F5B60A-A625-4118-91E9-CB9595603D46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B5D6BDB9-D574-4A86-9068-DDC9BA4B59A6}
+		SolutionGuid = {063AD3B7-F0D7-4B68-8DA0-561D706A9EFB}
 	EndGlobalSection
 EndGlobal

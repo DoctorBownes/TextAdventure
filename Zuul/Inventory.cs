@@ -22,6 +22,7 @@ namespace Zuul
 				items.Add(item.Description, item);
 				return true;
 			}
+			Console.WriteLine("You are overcumbered!");
 			return false;
 		}
 		public Item Get(string itemName)
