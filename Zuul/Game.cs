@@ -22,7 +22,8 @@ namespace Zuul
 			Room lab = new Room("in a computing lab");
 			Room office = new Room("in the computing admin office");
 			Room lowerpub = new Room("basement of the campus pub");
-			Item knife = new Item(80, "knife");
+			Item knife = new Item(40, "knife");
+			Item anvil = new Item(30, "anvil");
 			Item medkit = new Medkit();
 
 			// initialise room exits
@@ -30,6 +31,7 @@ namespace Zuul
 			outside.AddExit("south", lab);
 			outside.AddExit("west", pub);
 			outside.Chest.Put(knife);
+			outside.Chest.Put(anvil);
 			outside.Chest.Put(medkit);
 
 			theatre.AddExit("west", outside);
@@ -155,10 +157,7 @@ namespace Zuul
 
 		private void Take(Command command)
 		{
-			if (player1.TakeFromChest(command.GetSecondWord()))
-			{
-				player1.TakeFromChest(command.GetSecondWord());
-			}
+			player1.TakeFromChest(command.GetSecondWord());
 		}
 		private void UseItem(Command command)
 		{

@@ -25,10 +25,13 @@ namespace Zuul
 			Item ItemCheck = currentRoom.Chest.Get(itemName);
 			if (ItemCheck != null)
 			{
-				inventory.Put(ItemCheck);
-				//currentRoom.Chest.Get(itemName);
-				Console.WriteLine("You put the " + itemName + " in your inventory.");
-				return true;
+				if  (inventory.Put(ItemCheck) == true)
+				{
+					Console.WriteLine("You put the " + itemName + " in your inventory.");
+					return true;
+				}
+				currentRoom.Chest.Put(ItemCheck);
+				return false;
 			}
 			Console.WriteLine("There is no " + itemName + " in the room...");
 			return false;
@@ -39,7 +42,6 @@ namespace Zuul
 			if (ItemCheck != null)
 			{
 				currentRoom.Chest.Put(ItemCheck);
-				//inventory.Get(itemName);
 				Console.WriteLine("You dropped the " + itemName);
 				return true;
 			}

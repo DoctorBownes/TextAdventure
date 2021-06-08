@@ -9,19 +9,23 @@ namespace Zuul
 	public class Inventory
 	{
 		private int maxWeight;
+		private int totalWeight;
 		private Dictionary<string, Item> items;
 		public Inventory(int maxWeight)
 		{
+			totalWeight = 0;
 			this.maxWeight = maxWeight;
 			this.items = new Dictionary<string, Item>();
 		}
 		public bool Put(Item item)
 		{
-			if (item.Weight <= this.maxWeight)
+			totalWeight += item.Weight;
+			if (totalWeight <= this.maxWeight)
 			{
 				items.Add(item.Description, item);
 				return true;
 			}
+			totalWeight -= item.Weight;
 			Console.WriteLine("You are overcumbered!");
 			return false;
 		}
@@ -30,6 +34,7 @@ namespace Zuul
 			if (items.ContainsKey(itemName))
 			{
 				Item tempItem = new Item(items[itemName].Weight, items[itemName].Description);
+				totalWeight -= tempItem.Weight;
 				items.Remove(itemName);
 				return tempItem;
 			}
