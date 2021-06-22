@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Zuul
@@ -7,6 +8,7 @@ namespace Zuul
 		private string description;
 		private Inventory chest;
 		private Dictionary<string, Room> exits; // stores exits of this room.
+		private bool unlocked;
 
 		/**
 		 * Create a room described "description". Initially, it has no exits.
@@ -19,6 +21,7 @@ namespace Zuul
 		}
 		public Room(string desc)
 		{
+			unlocked = true;
 			chest = new Inventory(9999999);
 			description = desc;
 			exits = new Dictionary<string, Room>();
@@ -66,6 +69,25 @@ namespace Zuul
 			} else {
 				return null;
 			}
+		}
+
+		public bool isUnlocked()
+        {
+			return this.unlocked;
+        }
+
+		public bool Unlock()
+        {
+			if (!this.unlocked)
+            {
+				return unlocked = true;
+				//Console.WriteLine("You unlock the room with the key of imagination beyond it is another dimension, a dimension of sound, a dimension of sight, a dimension of mind. You traveling through a land that is both shadow and substance of this and ideas. You've just crossed over into: The Twilight Zone!");
+            }
+			return false;
+		}
+		public void Lock()
+		{
+			this.unlocked = false;
 		}
 
 		/**

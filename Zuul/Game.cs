@@ -23,8 +23,9 @@ namespace Zuul
 			Room office = new Room("in the computing admin office");
 			Room lowerpub = new Room("basement of the campus pub");
 			Item knife = new Item(40, "knife");
-			Item anvil = new Item(30, "anvil");
-			Item medkit = new Medkit();
+			Item anvil = new Item(40, "anvil");
+			Item medkit = new Medkit(10);
+			Item TheatreKey = new Key(5,  "redkey");
 
 			// initialise room exits
 			outside.AddExit("east", theatre);
@@ -33,8 +34,10 @@ namespace Zuul
 			outside.Chest.Put(knife);
 			outside.Chest.Put(anvil);
 			outside.Chest.Put(medkit);
+			outside.Chest.Put(TheatreKey);
 
 			theatre.AddExit("west", outside);
+			theatre.Lock();
 
 			pub.AddExit("east", outside);
 			pub.AddExit("down", lowerpub);
@@ -163,8 +166,19 @@ namespace Zuul
 		{
 			if (!command.HasThirdWord())
 			{
-				//player1.Use(command.GetSecondWord());
+				if (!command.HasSecondWord())
+				{
+					Console.WriteLine("Use what?");
+					return;
+				}
+				Console.WriteLine("Use " + command.GetSecondWord() + " on what?");
+				return;
 			}
+			else
+			{
+				Console.WriteLine(player1.Use(command.GetThirdWord()));
+			}
+
 		}
 		private void Drop(Command command)
 		{
@@ -193,12 +207,16 @@ namespace Zuul
 			{
 				Console.WriteLine("There is no door to "+direction+"!");
 			}
-			else
+			else if (nextRoom.isUnlocked())
 			{
 				player1.DamagePlayer(10);
 				player1.currentRoom = nextRoom;
 				Console.WriteLine(player1.GetCurrentRoomDesc());
 			}
+			else
+            {
+				Console.WriteLine("This room is locked...");
+            }
 		}
 
 	}

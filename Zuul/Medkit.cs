@@ -9,14 +9,16 @@ namespace Zuul
 	public class Medkit : Item
 	{
 		public int healAmount;
-		public Medkit() : base(10, "Medkit")
+		public Medkit(int weight) : base(weight, "medkit")
 		{
 			healAmount = 50;
 		}
 
-		public override void Use()
+		public override void Use(Object b)
 		{
-			base.Use();
+			Player p = (Player) b;
+			p.HealPlayer(healAmount);
+			//base.Use();
 		}
 	}
 }

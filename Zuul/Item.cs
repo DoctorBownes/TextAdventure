@@ -16,7 +16,7 @@ namespace Zuul
 			Description = description;
 		}
 
-		public virtual void Use()
+		public virtual void Use(Object o)
 		{
 			Console.WriteLine("This item cannot be used");
 		}
