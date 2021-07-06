@@ -49,16 +49,16 @@ namespace Zuul
 			return false;
 		}
 
-        public string Use(string itemName)
+        public string Use(Command command)
 		{
-			string str = "You use the " + itemName;
-			if (GetPlayerItems().Contains(itemName))
+			string str = "You use the " + command.GetThirdWord();
+			var ItemCheck = inventory.Get(command.GetThirdWord());
+			if (ItemCheck != null)
 			{
-				Item ItemCheck = inventory.Get(itemName);
-				ItemCheck.Use(this);
+				ItemCheck.Use(command.GetThirdWord());
 				return str;
 			}
-			str = "You don't have a " + itemName;
+			str = "You don't have a " + command.GetThirdWord();
 			return str;
 		}
 

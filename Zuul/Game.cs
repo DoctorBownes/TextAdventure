@@ -176,7 +176,7 @@ namespace Zuul
 			}
 			else
 			{
-				Console.WriteLine(player1.Use(command.GetThirdWord()));
+				player1.Use(command);
 			}
 
 		}

@@ -17,13 +17,12 @@ namespace Zuul
 		}
 		public bool Put(Item item)
 		{
-			items.Add(item.Description, item);
-			if (TotalWeight() <= this.maxWeight)
+			if (TotalWeight() + item.Weight <= this.maxWeight)
 			{
+				items.Add(item.Description, item);
 				return true;
 			}
 			Console.WriteLine("You are overcumbered!");
-			items.Remove(item.Description);
 			return false;
 		}
 		public Item Get(string itemName)
