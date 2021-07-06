@@ -51,14 +51,23 @@ namespace Zuul
 
         public string Use(Command command)
 		{
-			string str = "You use the " + command.GetThirdWord();
-			var ItemCheck = inventory.Get(command.GetThirdWord());
+			string str = "You use the " + command.GetSecondWord();
+			var ItemCheck = inventory.Get(command.GetSecondWord());
 			if (ItemCheck != null)
 			{
-				ItemCheck.Use(command.GetThirdWord());
-				return str;
+				if (!command.HasThirdWord())
+				{
+					ItemCheck.Use(this);
+					return str;
+				}
+				Room nextRoom = CurrentRoomExits(command.GetThirdWord());
+				if (nextRoom == null)
+				{
+					ItemCheck.Use(nextRoom);
+					return str;
+				}
 			}
-			str = "You don't have a " + command.GetThirdWord();
+			str = "You don't have a " + command.GetSecondWord();
 			return str;
 		}
 

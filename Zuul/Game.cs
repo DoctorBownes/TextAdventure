@@ -164,20 +164,13 @@ namespace Zuul
 		}
 		private void UseItem(Command command)
 		{
-			if (!command.HasThirdWord())
+			if (!command.HasSecondWord())
 			{
-				if (!command.HasSecondWord())
-				{
-					Console.WriteLine("Use what?");
-					return;
-				}
-				Console.WriteLine("Use " + command.GetSecondWord() + " on what?");
+				Console.WriteLine("Use what?");
 				return;
 			}
-			else
-			{
-				player1.Use(command);
-			}
+			Console.WriteLine(player1.Use(command));
+			return;
 
 		}
 		private void Drop(Command command)

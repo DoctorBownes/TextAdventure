@@ -12,8 +12,15 @@ namespace Zuul
 
 		public override void Use(Object b)
 		{
-			Room a = (Room) b;
-			a.Unlock();
+			if (b is Room)
+			{
+				Room a = (Room)b;
+				a.Unlock();
+			}
+			else
+            {
+				Console.WriteLine("You tried using the key on yourself and it broke!");
+            }
 			//base.Use();
 		}
 	}

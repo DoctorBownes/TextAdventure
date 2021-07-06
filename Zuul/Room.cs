@@ -79,9 +79,9 @@ namespace Zuul
 		public bool Unlock()
         {
 			if (!this.unlocked)
-            {
+			{
+				Console.WriteLine("You unlock the room with the key.");
 				return unlocked = true;
-				//Console.WriteLine("You unlock the room with the key of imagination beyond it is another dimension, a dimension of sound, a dimension of sight, a dimension of mind. You traveling through a land that is both shadow and substance of this and ideas. You've just crossed over into: The Twilight Zone!");
             }
 			return false;
 		}
